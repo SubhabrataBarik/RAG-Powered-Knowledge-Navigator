@@ -1,0 +1,32 @@
+{
+    "default_documents": {
+        "name": "Default Documents",
+        "files": [],
+        "faiss_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\default_documents\\faiss_index",
+        "chat_history_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\default_documents\\chat_history.json"
+    },
+    "7f3aead38d7d8ee56f6b5e2c487daf86": {
+        "name": "Documents_Modulation_Classification_for_Non-orthogonal_Multiple_Access_System_using_a_Modified_Residual-CNN",
+        "files": [
+            "Modulation_Classification_for_Non-orthogonal_Multiple_Access_System_using_a_Modified_Residual-CNN.pdf"
+        ],
+        "faiss_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\7f3aead38d7d8ee56f6b5e2c487daf86\\faiss_index",
+        "chat_history_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\7f3aead38d7d8ee56f6b5e2c487daf86\\chat_history.json"
+    },
+    "6ac992f909c1b3918bf196f8bf7f87df": {
+        "name": "Documents_EVA PSD v1.5",
+        "files": [
+            "EVA PSD v1.5.pdf"
+        ],
+        "faiss_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\6ac992f909c1b3918bf196f8bf7f87df\\faiss_index",
+        "chat_history_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\6ac992f909c1b3918bf196f8bf7f87df\\chat_history.json"
+    },
+    "5bb07c85fde8539a40ff709592b8b7db": {
+        "name": "EVA",
+        "files": [
+            "EVA_PPT_BNG.pdf"
+        ],
+        "faiss_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\5bb07c85fde8539a40ff709592b8b7db\\faiss_index",
+        "chat_history_path": "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage\\5bb07c85fde8539a40ff709592b8b7db\\chat_history.json"
+    }
+}
