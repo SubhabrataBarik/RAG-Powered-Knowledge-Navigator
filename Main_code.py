@@ -4,7 +4,7 @@ import os
 import json
 import hashlib
 from PyPDF2 import PdfReader
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.chat_models import ChatOpenAI
@@ -14,7 +14,8 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.documents import Document
 
 # --- Configuration ---
-STORAGE_ROOT = "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\DataBase\\storage"
+# STORAGE_ROOT = "C:\\Users\\debab\\Desktop\\IIT+SELF LEARNING\\CODING\\CHAT BOTS\\Chat with Multiple PDFs\\storage"
+STORAGE_ROOT = "./storage"
 os.makedirs(STORAGE_ROOT, exist_ok=True) # Ensure root storage directory exists
 
 # --- Helper Functions (No changes to these unless specified below) ---
@@ -97,8 +98,8 @@ def get_conversation_chain(vectorstore, chat_history_messages=[]):
     if vectorstore is None:
         return None
     try:
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.3)
-        # llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
+        # llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.5)
+        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
         memory = ConversationBufferMemory(
             memory_key='chat_history', return_messages=True)
 
@@ -240,7 +241,7 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="Helping Chatbot", page_icon=":books:", layout="wide")
+    st.set_page_config(page_title="Chat with Multiple PDFs", page_icon=":books:", layout="wide")
 
     # --- Session State Initialization ---
     if "conversation" not in st.session_state:
@@ -291,7 +292,7 @@ def main():
                 st.session_state.current_doc_set_id = "default_documents"
                 st.session_state.chat_history = [] # Reset history if load fails
 
-    st.markdown("<h1 style='text-align: center;'> BookBuddy : books</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Chat with Multiple PDFs :books:</h1>", unsafe_allow_html=True)
     st.markdown("<hr/>", unsafe_allow_html=True)
 
     # --- Main Chat Area ---

@@ -2,8 +2,6 @@ import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
-
-# from langchain_huggingface import HuggingFaceEmbeddings, HuggingFaceEndpoint, ChatHuggingFacegs
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.chat_models import ChatOpenAI
@@ -33,36 +31,20 @@ def get_text_chunks(text):
     return chunks
 
 
-# def get_vectorstore(text_chunks):
-#     # embeddings = OpenAIEmbeddings()
-#     embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
-#     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
-#     return vectorstore
-
 def get_vectorstore(text_chunks):
-    embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
+    embeddings = OpenAIEmbeddings() # model="text-embedding-ada-002"
+    # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
 
-
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI()
-    # llm = HuggingFaceHub(
-    #     repo_id="google/flan-t5-xxl",
-    #     huggingfacehub_api_token="your_token_here",
-    #     model_kwargs={"temperature": 0.5, "max_length": 512}
-    # )
-    # llm = HuggingFaceEndpoint(
-    # repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    # task="text-generation"
-    # )
-    
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
-        retriever=vectorstore.as_retriever(),
+        retriever=vectorstore.as_retriever(search_kwargs={"k": 4}),
         memory=memory
     )
     return conversation_chain
